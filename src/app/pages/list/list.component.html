@@ -1,0 +1,30 @@
+<ng-container *ngFor="let item of data">
+    <div class="p-2 item" (click)="showItem(item)" role="button">
+        <div class="d-flex">
+            <div class="w-10">{{ item.email }}</div>
+            <div class="w-50 d-flex flex-column">
+                <p class="m-0 fw-bold">{{ item.subject }}</p>
+                <div class="  text-truncate " style="width:  200px; color :  #ccc">
+                    {{ item.content }}
+                </div>
+                <div *ngIf="item.files?.length > 0" class="files d-flex">
+                    <div *ngFor="let item of item.files" style="width:  100px;"
+                        class="text-truncate border border-warning fw-bold px-1 rounded-4 me-1 ">
+                        <a (click)="viewFile(item.url)" class="" rel="noopener noreferrer"> <img
+                                [src]="item.mime == 'image/png' ? 'assets/data/image.png' : 'assets/data/pdf.png'"
+                                width="15px"> {{
+                            item.filename }} </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-auto d-flex align-items-center">
+                <span>{{ item.created_at | date : 'dd/MM/YYYY h:mm'}}</span>
+                <span (click)="$event.stopPropagation()" (click)="update(item)" title="Update"
+                    class="me-1 m-0 py-3 px-0">📋</span>
+                <span (click)="$event.stopPropagation()" (click)="delete(item)" title="Delete"
+                    class="me-1 m-0 py-3 px-0">⛔</span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<div class="p-2 text-center text-warning" *ngIf="isLoadDing">Đang tải dữ liệu ...</div>

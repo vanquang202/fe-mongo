@@ -1,0 +1,40 @@
+<div class="p-2">
+    <div class="d-flex  justify-content-center align-items-center">
+        <h3>Gửi thư</h3>
+    </div>
+    <hr class="m-0">
+    <div class="form-group">
+        <label class="label-form">Người nhận</label>
+        <input [(ngModel)]="data.email" type="text" class="form-control" placeholder="Người nhận">
+    </div>
+    <div class="form-group">
+        <label class="label-form">Tiêu dề </label>
+        <input [(ngModel)]="data.subject" type="text" class="form-control" placeholder="Tiêu đề ">
+    </div>
+    <div class="form-group">
+        <label class="label-form">Nội dung </label>
+        <textarea [(ngModel)]="data.content" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label class="label-form">Đính kèm</label>
+        <input (change)="onFileSelected($event)" type="file" class="form-control" multiple="true">
+    </div>
+    <div class="form-group mt-2 d-flex">
+        <ng-container *ngFor="let item of files">
+            <div role="button" [title]="item.filename ??
+            item.name" class="border  d-flex  border-warning px-1 rounded-4 me-1"
+                (click)="viewFile(item.name ? item.url : convertUrl(item.data,item.mime))">
+                <div class="text-truncate " style="width: 100px">
+                    🔗 {{
+                    item.filename ??
+                    item.name}}
+                </div>
+                <span role="button" (click)="$event.stopPropagation()"
+                    (click)="removeFile( item.filename ?? item.name)">❌</span>
+            </div>
+        </ng-container>
+    </div>
+    <div class="form-group mt-2 d-flex justify-content-center">
+        <button (click)="send()" class="btn w-100 btn-primary">Gửi thư </button>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="p-2">
+    <div class="header-form d-flex justify-content-center">
+        <h2>Đăng nhập </h2>
+    </div>
+    <div class="form d-flex justify-content-center flex-column gap-2 ">
+
+        <div class="form-group ">
+            <label for="exampleInputEmail1">Email</label>
+            <input [(ngModel)]="user.email" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="Email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mật khẩu</label>
+            <input [(ngModel)]="user.password" type="password" class="form-control" id="exampleInputPassword1"
+                placeholder="Mật khẩu ">
+        </div>
+        <button type="submit" (click)="login()" class="btn btn-primary">Đăng nhập </button>
+        <div>
+            <p>Nếu bạn chưa có tài khoản <a href="#"> đăng ký </a></p>
+        </div>
+    </div>
+</div>

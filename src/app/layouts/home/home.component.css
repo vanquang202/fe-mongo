@@ -1,0 +1,8 @@
+
+.list-group-item{
+    border-radius: unset;
+}
+.active{
+    background-color: #ccc;
+    border: none;
+}

@@ -1,0 +1,16 @@
+.item
+{
+    border-radius: unset;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    transition: all .1s;
+}
+.item:hover{
+    border-bottom: 5px solid #ccc;
+}
+a{
+    list-style: none;
+}
+.w-10{
+    width: 10% !important;
+}

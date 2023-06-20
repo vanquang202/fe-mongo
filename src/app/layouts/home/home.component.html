@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="row m-0 py-1">
+        <!-- <div class="col-2 p-1">
+            <div class="d-flex flex-column">
+                <div class="logo bg-secondary text-light p-1 rounded d-flex align-items-center justify-content-center">
+                    <h2 routerLink="/" role="button">JIMLOGO</h2>
+                </div>
+                <div class="store my-2">
+                    <button (click)="createNew()" class="btn btn-outline-secondary rounded-2"> Gửi thư +</button>
+                </div>
+                <div class="list-nemu">
+
+                </div>
+            </div>
+        </div> -->
+        <div class="col-12 px-1">
+            <div class="d-flex flex-column">
+                <div class="search w-100 mb-2 d-flex p-1 bg-secondary rounded-3">
+                    <div
+                        class="logo bg-secondary text-light me-2 rounded d-flex align-items-center justify-content-center">
+
+                        <button (click)="createNew()" class="btn btn-outline-dark text-light fw-bold rounded-2"> Gửi thư
+                            +</button>
+                    </div>
+                    <input type="text" (change)="changeDataS($event)" class="form-control w-25" placeholder="Tìm kiếm ">
+                    <div class="ms-auto">
+                        <div class="dropdown">
+                            <img width="40px" class="rounded-circle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" src="https://www.w3schools.com/bootstrap/img_avatar1.png" alt="">
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" (click)="logOut()" href="#">Đăng xuất</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
